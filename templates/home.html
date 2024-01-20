@@ -1,0 +1,95 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMFI NAV API</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Slab', slab-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Top Navbar -->
+<nav class="bg-blue-500 p-4 text-white">
+    <div class="container mx-auto text-center">
+        <h1 class="text-2xl font-bold">AMFI NAV API</h1>
+        <p class="text-sm">Retrieve NAV data for mutual funds with ease!</p>
+    </div>
+</nav>
+
+<!-- Introduction Section -->
+<div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Introduction</h2>
+    <p>
+        Welcome to the AMFI NAV API! This API provides a convenient way to retrieve Net Asset Value (NAV) data
+        for various mutual funds. Use the provided endpoint to get the latest NAV or specify parameters for more
+        specific queries.
+    </p>
+</div>
+
+<!-- How to Use Section -->
+<div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">How to Use</h2>
+    <p class="text-center">
+        To retrieve NAV data for mutual funds, use the following endpoint:
+        <code class="bg-gray-200 p-1">/nav_data/</code>
+    </p>
+    <p class="text-center">
+        You can provide the following parameters:
+    </p>
+    <ul class="list-disc pl-8">
+        <li><code>scheme_code</code> (mandatory, regex: <code>^\d{6}$</code>)</li>
+        <li><code>isin</code> (optional, regex: <code>^[A-Za-z0-9]{12}$</code>)</li>
+        <li><code>scheme_name</code> (optional)</li>
+        <li><code>date</code> (optional)</li>
+        <li><code>page</code> (optional, default: 1)</li>
+        <li><code>page_size</code> (optional, default: 10, max: 100)</li>
+    </ul>
+    <p class="text-center">
+        Example usage:
+        <code class="bg-gray-200 p-1">/nav_data/?scheme_code=119551&date=2024-01-15</code>
+    </p>
+</div>
+
+<!-- Additional Details Section -->
+<div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Additional Details</h2>
+    <p>
+        This API supports various parameters to cater to your specific needs. Whether you are looking for
+        NAV data for a particular scheme or want historical data for a specific date, this API has you covered.
+    </p>
+    <p>
+        Feel free to explore the options and tailor your requests accordingly. For any issues or questions,
+        please refer to the documentation or contact our support team.
+    </p>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-gray-900 text-white p-4 text-center">
+    <div class="container mx-auto">
+        <p>&copy; 2024 Amaresh M. All rights reserved.</p>
+        <p>
+            Disclaimer: The NAV data provided by this API is sourced from the official AMFI website. While every effort
+            is made to ensure accuracy, this API does not guarantee its correctness. It is not intended for legal use
+            or data theft, as AMFI publishes this information for public use.
+        </p>
+    </div>
+</footer>
+
+<!-- Tailwind CSS and scripts -->
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+</body>
+
+</html>
