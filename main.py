@@ -1,6 +1,7 @@
 # main.py
 from fastapi import FastAPI, HTTPException, Query
 from typing import Optional
+from fastapi.responses import HTMLResponse
 from database import collection
 import logging
 
@@ -9,6 +10,10 @@ app = FastAPI()
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    return HTMLResponse(content=open("templates/home.html").read(), status_code=200)
 
 @app.get("/navdata/")
 async def get_nav_data(

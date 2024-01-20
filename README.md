@@ -1,6 +1,7 @@
 # AMFI NAV API
 
 A RESTful API built with FastAPI to provide Net Asset Value (NAV) data for mutual funds.
+https://amfi-nav.azurewebsites.net
 
 ## Overview
 
@@ -27,9 +28,14 @@ Example:
 
 ```
 curl -X 'GET' \
-  'http://amfi-nav.azurewebsites.net/navdata/?scheme_code=119551&date=2024-01-15' \
+  'https://amfi-nav.azurewebsites.net/navdata/?scheme_code=119551&date=2024-01-15' \
   -H 'accept: application/json'
 ```
+## API Docs
+[Swagger](https://amfi-nav.azurewebsites.net/docs)
+[Redoc](https://amfi-nav.azurewebsites.net/redoc)
+
+
 ## License
 This project is licensed under the MIT License.
 

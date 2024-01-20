@@ -1,0 +1,8 @@
+fastapi==0.109.0
+httpcore==1.0.2
+httptools==0.6.1
+httpx==0.26.0
+pymongo==4.6.1
+python-dotenv==1.0.0
+uvicorn==0.26.0
+
