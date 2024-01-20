@@ -1,24 +1,33 @@
 # main.py
 from fastapi import FastAPI, HTTPException, Query
-from typing import Optional
 from fastapi.responses import HTMLResponse
+from typing import Optional
 from database import collection
 import logging
 
-app = FastAPI()
+app = FastAPI(
+    title="AMFI NAV API",
+    description="Instantly access mutual fund Net Asset Values (NAV) with ease using the AMFI NAV API.",
+    version="1.0.0",
+    license_info={
+        "name": "Apache 2.0",
+        "identifier": "MIT",
+    },
+)
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
 async def read_root():
     return HTMLResponse(content=open("templates/home.html").read(), status_code=200)
 
 @app.get("/navdata/")
 async def get_nav_data(
-    scheme_code: str = Query(..., regex=r"^\d{6}$"),
-    isin: Optional[str] = Query(None, regex=r"^[A-Za-z0-9]{12}$"),
+    scheme_code: str = Query(..., pattern="^\d{6}$"),
+    isin: Optional[str] = Query(None, pattern="^[A-Za-z0-9]{12}$"),
     scheme_name: Optional[str] = None,
     date: Optional[str] = None,
     page: int = Query(1, ge=1),
@@ -80,3 +89,7 @@ async def get_nav_data(
     logger.info(f"Request processed for scheme_code={scheme_code}, isin={isin}, scheme_name={scheme_name}, date={date}")
 
     return response_data
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
