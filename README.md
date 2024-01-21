@@ -3,6 +3,8 @@
 A RESTful API built with FastAPI to provide Net Asset Value (NAV) data for mutual funds.
 https://amfi-nav.azurewebsites.net
 
+[![Build and deploy Python app to Azure Web App - amfi-nav](https://github.com/m-amaresh/amfi-nav-api/actions/workflows/main_amfi-nav.yml/badge.svg)](https://github.com/m-amaresh/amfi-nav-api/actions/workflows/main_amfi-nav.yml)
+
 ## Overview
 
 The AMFI NAV API allows users to retrieve NAV data for mutual funds based on scheme codes, ISINs, scheme names, and specific dates. The API is built using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.7+.
